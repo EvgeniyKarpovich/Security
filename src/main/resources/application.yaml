@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=security
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    change-log: classpath:liquibase/changelog.xml
+
+security:
+  jwt:
+    secret: Zmdhc2RnbGhkc2pnaGRqa2doc2RsamtnaElVUE9VWUg4OTcwOTY=
+    access: 3600000
+    refresh: 2592000000
+
+#убирает сообщение об ошибках в свагерре
+springdoc:
+  override-with-generic-response: false

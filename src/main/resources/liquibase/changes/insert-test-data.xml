@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="insert-users" author="karpovich">
+        <sql>
+            INSERT INTO users (username, firstname, lastname, email, password)
+            values ('John Doe', 'Eugene', 'Karpovich' 'johndoe@gmail.com', '$2a$10$Xl0yhvzLIaJCDdKBS0Lld.ksK7c2Zytg/ZKFdtIYYQUv8rUfvCR4W'),
+                   ('Mike Smith', 'Artsiom', 'Shpak', 'mikesmith@yahoo.com','$2a$10$fFLij9aYgaNCFPTL9WcA/uoCRukxnwf.vOQ8nrEEOskrCNmGsxY7m');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-users-roles" author="karpovich">
+        <sql>
+            INSERT INTO users_roles (user_id, role)
+            values (1, 'ROLE_ADMIN'),
+                   (1, 'ROLE_USER'),
+                   (2, 'ROLE_USER');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
